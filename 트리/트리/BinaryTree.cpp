@@ -3,6 +3,15 @@
 using namespace std;
 #define Max 100
 
+/*
+
+이진 트리 : 자식이 최대 두개
+			주로 수식 연산에서 사용
+			preorder,inorder,postorder
+
+
+*/
+
 
 class Tree {
 	class Node {
@@ -23,7 +32,7 @@ public:
 	Node* Search();
 	void Inorder(Node* temp);
 	void Preorder(Node* temp);
-	void Delete();
+	void Destroy(Node* temp);
 	void PrintTree();
 
 };
@@ -40,10 +49,6 @@ Tree::Tree() {
 
 Tree::Node* Tree::Search() {
 	Node* temp = root;
-	Node* newNode = new Node;
-	newNode->data = NULL;
-	newNode->leftchild = NULL;
-	newNode->rightchild = NULL;
 	queue<Node*> queue;
 	
 	while (temp->leftchild != NULL && temp->rightchild != NULL ) {
@@ -53,12 +58,7 @@ Tree::Node* Tree::Search() {
 		queue.pop();		
 	}
 
-	if (temp->leftchild == NULL)
-		temp->leftchild = newNode;
-	else
-		temp->rightchild = newNode;
-		
-	return newNode;
+	return temp;
 
 }
 
@@ -69,10 +69,35 @@ void Tree::Insert(int data) {
 	}
 	else {
 
-		Node* newNode = Search();
-		newNode->data = data;	
+		Node* temp = Search();
+		Node* newNode = new Node;
+		newNode->data = data;
+		newNode->leftchild = NULL;
+		newNode->rightchild = NULL;
+
+		if (temp->leftchild == NULL)
+			temp->leftchild = newNode;
+		else
+			temp->rightchild = newNode;
+
 	}
 }
+
+
+void Tree::Destroy(Node* temp) {
+	
+	if (temp == NULL)
+		return;
+		
+	
+	Destroy(temp->leftchild);
+	Destroy(temp->rightchild);
+	
+	delete temp;
+
+}
+
+
 
 void Tree::PrintTree() {
 
@@ -143,4 +168,6 @@ void main() {
 	cout << endl;
 
 	tree.Inorder(tree.root);
+
+	tree.Destroy(tree.root);
 }
