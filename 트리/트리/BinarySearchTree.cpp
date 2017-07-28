@@ -2,13 +2,32 @@
 #include<Queue>
 using namespace std;
 
+/*
+
+Tree : Acyclic Connected Graph
+검색 : 평균 O(log n) 트리의 높이만큼 걸린다    ->> 장점
+       최악의 경우 O(n)
+삽입 : O(log n + k )
+삭제 : 1. 리프노드 2. 중간 노드 - 자식이 1개인 경우, 자식이 2개인 경우
+장점 : 빠른 시간에 서치 가능,  인서트 쉬움
+
+단점 : 정렬된 데이터를 삽입하면 한쪽으로만 자라게 된다( skewed Tree) -> 결국 linear search 랑 같은 성능을 보이게 된다. 
+
+검색에 이점이 있지만 최악을 보장 x , Tree의 크기를 가늠할 수 없다.
+-> Balanced Tree가 나오게 됨
+
+*/
+
+
+
+
 class BST {
 	class Node {
 	public:
 		int data;
 		Node* leftchild;
 		Node* rightchild;
-		Node* parent;
+		Node* parent;     ///////////////////////요렇게 하지말고 서치할때 부모 노드를 반환하는 방식으로 바꾸기!
 		int depth;
 	};
 
@@ -21,6 +40,7 @@ public:
 	Node* Search(int data);
 	void Delete(int data);
 	void Print();
+
 };
 
 BST::BST() {
