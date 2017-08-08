@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-퀵,머지,라딕스,힙",
+      "appliesTo": "Sorting/퀵,머지,라딕스,힙.cpp",
+      "type": "command"
+    }
+  ]
+}

@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Sorting",
+    "\\링크드리스트",
+    "\\링크드리스트\\링크드리스트",
     "\\스택과 큐",
-    "\\스택과 큐\\스택과 큐"
+    "\\트리",
+    "\\트리\\트리"
   ],
-  "SelectedNode": "\\스택과 큐\\스택과 큐",
+  "SelectedNode": "\\Sorting\\기본 정렬 알고리즘.cpp",
   "PreviewInSolutionExplorer": false
 }
