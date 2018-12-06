@@ -287,4 +287,235 @@ print(my)
 
 
 
+------------------------------------------
+
+# coding: utf-8
+
+# In[1]:
+
+
+import pandas as pd
+import numpy as np
+
+
+
+# In[2]:
+
+
+data1 = [[10,20],[30,40],[50,60]]
+data2 = [(10,20),(30,40),(50,60)]
+data3 = [ {'kor':10,'eng':20},
+        {'kor':30,'eng':40},
+        {'kor':50,'eng':60}]
+data4 = {'kor':[10,30,50],'eng':[20,40,60]}
+
+
+
+# In[3]:
+
+
+df1 = pd.DataFrame(data1)
+df1
+
+
+# In[4]:
+
+
+df2 = pd.DataFrame(data2)
+df2
+
+
+# In[5]:
+
+
+df3 = pd.DataFrame(data3)
+df3
+
+
+# In[6]:
+
+
+df4 = pd.DataFrame(data4)
+df4
+
+
+----------------------------------------
+
+# coding: utf-8
+
+# In[1]:
+
+
+import pandas as pd
+import numpy as np
+
+
+# In[2]:
+
+
+data1 = [[10,20],[30,40],[50,60]]
+data2 = [(10,20),(30,40),(50,60)]
+data3 = [ {'kor':10,'eng':20},
+        {'kor':30,'eng':40},
+        {'kor':50,'eng':60}]
+data4 = {'kor':[10,30,50],'eng':[20,40,60]}
+
+
+# In[5]:
+
+
+df = pd.DataFrame(data1,index=['홍길동','이순신','임꺽정'],columns=['국어','영어'])
+df
+
+
+# In[6]:
+
+
+df.ndim
+
+
+# In[7]:
+
+
+df.shape
+
+
+# In[8]:
+
+
+df.size
+
+
+# In[9]:
+
+
+df.index
+
+
+# In[10]:
+
+
+df.values
+
+
+# In[11]:
+
+
+df.columns
+
+
+# In[12]:
+
+
+df
+
+
+# In[15]:
+
+
+df['국어']   #0라고 주면 에러남
+# Series로 반환됨
+
+------------------------------------------
+
+# coding: utf-8
+
+# In[5]:
+
+
+import pandas as pd
+import numpy as np
+
+data3 = [ {'kor':10,'eng':20,'math':30},
+        {'kor':30,'eng':40,'math':40},
+        {'kor':50,'eng':60,'math':60}]
+
+
+# In[8]:
+
+
+df = pd.DataFrame(data3)
+df.index=['홍길동','임꺽정','이순신']
+df
+
+
+# In[9]:
+
+
+df['eng']
+
+
+# In[10]:
+
+
+df.eng
+
+
+# In[11]:
+
+
+df[['eng','math']]
+
+
+# In[12]:
+
+
+df.loc['홍길동']
+
+
+# In[13]:
+
+
+df.iloc[0]
+
+
+# In[17]:
+
+
+# df.loc['홍길동':'이순신']
+df.iloc[0:3]
+
+
+# In[19]:
+
+
+# df[0:3]
+df['홍길동':'이순신']
+
+
+# In[20]:
+
+
+df.loc['임꺽정':]#임꺽정 이후에 끝까지
+
+
+# In[21]:
+
+
+df.loc['홍길동','kor']
+
+
+# In[22]:
+
+
+df.iloc[0,1]
+
+
+# In[24]:
+
+
+df.loc['이순신':,'kor':]
+
+
+# In[25]:
+
+
+df.loc['임꺽정':'이순신','kor':]
+
+
+# In[27]:
+
+
+df.loc['임꺽정':'이순신',['eng','math']]
+
 
